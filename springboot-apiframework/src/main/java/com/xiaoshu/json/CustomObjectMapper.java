@@ -60,7 +60,8 @@ public class CustomObjectMapper extends ObjectMapper {
         this.dateFormatPattern = dateFormatPattern;
     }
 
-    public void init() {
+	@SuppressWarnings("deprecation")
+	public void init() {
         // 排除值为空属性
         setSerializationInclusion(JsonInclude.Include.NON_NULL);
         // 进行缩进输出
