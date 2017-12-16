@@ -5,6 +5,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import com.xiaoshu.cors.CorsFilter;
+import com.xiaoshu.web.WebContextFilter;
 
 /**
  * 
@@ -47,4 +48,14 @@ public class CorsConfig {
         registration.setOrder(10);
         return registration;
     }
+	
+	@Bean
+	public FilterRegistrationBean webFilterRegistration(){
+		FilterRegistrationBean registration = new FilterRegistrationBean();
+		registration.setFilter(new WebContextFilter());
+        registration.addUrlPatterns("/*");
+        registration.setName("WebFilter");
+        registration.setOrder(8);
+		return registration;
+	}
 }
