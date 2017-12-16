@@ -3,6 +3,7 @@ package com.xiaoshu.config;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
 
 import com.xiaoshu.cors.CorsFilter;
 import com.xiaoshu.json.CustomObjectMapper;
@@ -38,6 +39,7 @@ import com.xiaoshu.web.WebContextFilter;
  * Copyright (C)2013-2017 小树盛凯科技 All rights reserved.
  */
 @Configuration
+@EnableAspectJAutoProxy(proxyTargetClass = true)
 public class CommonConfig {
 	
 	@Bean	//支持 CORS 跨域

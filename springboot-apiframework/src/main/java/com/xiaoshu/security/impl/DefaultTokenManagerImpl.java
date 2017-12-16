@@ -7,7 +7,6 @@ import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
 
 import org.springframework.stereotype.Component;
-import org.springframework.util.ObjectUtils;
 
 import com.xiaoshu.security.TokenManager;
 
@@ -40,7 +39,7 @@ import com.xiaoshu.security.TokenManager;
  * 
  * Copyright (C)2013-2017 小树盛凯科技 All rights reserved.
  */
-@Component
+@Component(value ="defaultTokenManager")
 public class DefaultTokenManagerImpl implements TokenManager {
 
 	private ConcurrentHashMap<String, Object> tokenMaps = new ConcurrentHashMap<String, Object>();
@@ -48,8 +47,7 @@ public class DefaultTokenManagerImpl implements TokenManager {
 	@Override
 	public boolean checkToken(String token) {
 		// 检查Token的有效性
-		Object result = tokenMaps.get(SECURITY_USER_TOKEN + token);
-		return !ObjectUtils.isEmpty(result);
+		return tokenMaps.containsKey(SECURITY_USER_TOKEN + token) ;
 	}
 
 	@Override

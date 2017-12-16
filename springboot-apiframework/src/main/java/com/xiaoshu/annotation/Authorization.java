@@ -1,7 +1,17 @@
 /**
  * 
  */
-package com.xiaoshu.security;
+package com.xiaoshu.annotation;
+
+
+import static java.lang.annotation.ElementType.METHOD;
+import static java.lang.annotation.ElementType.TYPE;
+
+import java.lang.annotation.Documented;
+import java.lang.annotation.Inherited;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
 
 /**
  * 
@@ -28,27 +38,14 @@ package com.xiaoshu.security;
  * @Description : 
  * ---------------------------------
  * @Author : deane.administrator
- * @Date : Create in 2017年12月16日 上午9:38:50
+ * @Date : Create in 2017年12月16日 上午9:55:18
  * 
  * Copyright (C)2013-2017 小树盛凯科技 All rights reserved.
  */
-public interface TokenManager {
-
-	public static final String SECURITY_USER_TOKEN = "X-Token";
-	public static final String SECURITY_SPLITER_SIGN = ":";
-	
-	/**
-	 * 检查Token的有效性
-	 * @param token
-	 * @return
-	 */
-	public boolean checkToken(String token);
-	
-	/**
-	 * 创建Token
-	 * @param userName
-	 * @return
-	 */
-	public String createToken(String userName);
-	
+@Documented
+@Inherited
+@Target({TYPE,  METHOD, })
+@Retention(RetentionPolicy.RUNTIME)
+public @interface Authorization {
+	//待用类或方法时，进行验证
 }
