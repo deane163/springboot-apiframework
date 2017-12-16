@@ -5,6 +5,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import com.xiaoshu.cors.CorsFilter;
+import com.xiaoshu.json.CustomObjectMapper;
 import com.xiaoshu.web.WebContextFilter;
 
 /**
@@ -37,9 +38,9 @@ import com.xiaoshu.web.WebContextFilter;
  * Copyright (C)2013-2017 小树盛凯科技 All rights reserved.
  */
 @Configuration
-public class CorsConfig {
+public class CommonConfig {
 	
-	@Bean
+	@Bean	//支持 CORS 跨域
     public FilterRegistrationBean corsFilterRegistration() {
         FilterRegistrationBean registration = new FilterRegistrationBean();
         registration.setFilter(new CorsFilter());
@@ -49,7 +50,7 @@ public class CorsConfig {
         return registration;
     }
 	
-	@Bean
+	@Bean	//用于管理 WebContext 对象的生命周期
 	public FilterRegistrationBean webFilterRegistration(){
 		FilterRegistrationBean registration = new FilterRegistrationBean();
 		registration.setFilter(new WebContextFilter());
@@ -57,5 +58,13 @@ public class CorsConfig {
         registration.setName("WebFilter");
         registration.setOrder(8);
 		return registration;
+	}
+	
+	@Bean	//定制 Jackson 的 ObjectMapper
+	public CustomObjectMapper objectMapper(){
+		CustomObjectMapper objectMapper = new CustomObjectMapper();
+		objectMapper.setCamelCaseToLowerCaseWithUnderscores(true);
+		objectMapper.setDateFormatPattern("yyyy-MM-dd HH:mm:ss");
+		return objectMapper;
 	}
 }
