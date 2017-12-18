@@ -132,7 +132,7 @@
 			<artifactId>dubbo</artifactId>
 			<version>${version.dubbo}</version>
 		</dependency>
-
+		<!-- 有效性验证 -->
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-validator</artifactId>
