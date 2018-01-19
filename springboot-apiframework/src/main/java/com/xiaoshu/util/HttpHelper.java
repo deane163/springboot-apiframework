@@ -1,9 +1,9 @@
-package com.xiaoshu.service;
+package com.xiaoshu.util;
 
-import java.util.List;
+import javax.servlet.http.HttpServletRequest;
 
-import com.xiaoshu.model.LogInfo;
-
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
 /**
  * 
  * code is far away from bug with the animal protecting
@@ -26,17 +26,19 @@ import com.xiaoshu.model.LogInfo;
  * 　　　┗┻┛　┗┻┛
  *
  *
- * @Description : 日志信息记录
+ * @Description : Http Helper 工具类实现
  * ---------------------------------
  * @Author : deane.administrator
- * @Date : Create in 2017年12月27日下午4:01:10
+ * @Date : Create in 2017年12月26日下午8:09:38
  * 
  * Copyright (C)2013-2017 小树盛凯科技 All rights reserved.
  */
-public interface LogService {
+public class HttpHelper {
 
-	public void save(LogInfo log);
-	
-	public void batchSave(List<LogInfo> logs);
-	
+	public static HttpServletRequest getHttpServletRequest() {
+		if(null != RequestContextHolder.getRequestAttributes())
+			return ((ServletRequestAttributes)RequestContextHolder.getRequestAttributes()).getRequest();
+		else
+			return null;
+	}
 }
