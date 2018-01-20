@@ -13,6 +13,35 @@ import org.springframework.util.CollectionUtils;
 
 import com.xiaoshu.task.impl.LogTask;
 
+/**
+ * 
+ * code is far away from bug with the animal protecting
+ * ┏┓　　　┏┓
+ * ┏┛┻━━━┛┻┓
+ * ┃　　　　　　　┃
+ * ┃　　　━　　　┃
+ * ┃　┳┛　┗┳　┃
+ * ┃　　　　　　　┃
+ * ┃　　　┻　　　┃
+ * ┃　　　　　　　┃
+ * ┗━┓　　　┏━┛
+ * 　　┃　　　┃神兽保佑
+ * 　　┃　　　┃代码无BUG！
+ * 　　┃　　　┗━━━┓
+ * 　　┃　　　　　　　┣┓
+ * 　　┃　　　　　　　┏┛
+ * 　　┗┓┓┏━┳┓┏┛
+ * 　　　┃┫┫　┃┫┫
+ * 　　　┗┻┛　┗┻┛
+ *
+ *
+ * @Description : 异步数据处理，进行数据的处理操作。
+ * ---------------------------------
+ * @Author : deane.administrator
+ * @Date : Create in 2018年1月20日上午10:28:14
+ * 
+ * Copyright (C)2013-2018 小树盛凯科技 All rights reserved.
+ */
 public abstract class Task<T> implements Runnable {
 
 	private Logger logger = LoggerFactory.getLogger(this.getClass());
