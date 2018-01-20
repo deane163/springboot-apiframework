@@ -21,6 +21,35 @@ import com.xiaoshu.model.LogInfo;
 import com.xiaoshu.util.HttpHelper;
 import com.xiaoshu.util.IpHelper;
 
+/**
+ * 
+ * code is far away from bug with the animal protecting
+ * ┏┓　　　┏┓
+ * ┏┛┻━━━┛┻┓
+ * ┃　　　　　　　┃
+ * ┃　　　━　　　┃
+ * ┃　┳┛　┗┳　┃
+ * ┃　　　　　　　┃
+ * ┃　　　┻　　　┃
+ * ┃　　　　　　　┃
+ * ┗━┓　　　┏━┛
+ * 　　┃　　　┃神兽保佑
+ * 　　┃　　　┃代码无BUG！
+ * 　　┃　　　┗━━━┓
+ * 　　┃　　　　　　　┣┓
+ * 　　┃　　　　　　　┏┛
+ * 　　┗┓┓┏━┳┓┏┛
+ * 　　　┃┫┫　┃┫┫
+ * 　　　┗┻┛　┗┻┛
+ *
+ *
+ * @Description : 
+ * ---------------------------------
+ * @Author : deane.administrator
+ * @Date : Create in 2018年1月20日上午11:03:49
+ * 
+ * Copyright (C)2013-2018 小树盛凯科技 All rights reserved.
+ */
 @Aspect
 @Component
 public class LogAspect {
