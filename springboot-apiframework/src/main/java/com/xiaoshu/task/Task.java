@@ -5,6 +5,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ConcurrentLinkedQueue;
+import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.locks.ReentrantLock;
 
 import org.slf4j.Logger;
@@ -53,6 +54,11 @@ public abstract class Task<T> implements Runnable {
 	public ConcurrentLinkedQueue<T> queue = new ConcurrentLinkedQueue<T>();
 
 	private static Task<?> task;
+	/**
+	 * 是否是同步的标识
+	 */
+	private AtomicBoolean async = new AtomicBoolean(false);
+	
 
 	/**
 	 * 使用当独线程时，线程的休眠时间
@@ -63,8 +69,16 @@ public abstract class Task<T> implements Runnable {
 		super();
 		this.dataHandler = dataHandler;
 	}
+	
+    public boolean getAsync() {
+        return async.get();
+    }
 
-	public void addQueue(T t) {
+    public void setAsync(boolean isAsync) {
+        async.set(isAsync);
+    }
+
+    public void addQueue(T t) {
 		queue.add(t);
 	}
 	
