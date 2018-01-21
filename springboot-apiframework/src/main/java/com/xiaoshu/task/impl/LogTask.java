@@ -28,7 +28,7 @@ import com.xiaoshu.task.Task;
  * 　　　┗┻┛　┗┻┛
  *
  *
- * @Description : 
+ * @Description : 日志处理的任务极致
  * ---------------------------------
  * @Author : deane.administrator
  * @Date : Create in 2018年1月20日上午10:30:40
