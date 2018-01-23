@@ -84,14 +84,14 @@ public abstract class Task<T> implements Runnable {
 	
 	@SuppressWarnings("rawtypes") 
 	public static Task<?> getInstance(DataHandler dataHandler) throws Exception {
-
+		// 默认情况下是处理日志的异步处理
 		return getInstance(LogTask.class, dataHandler);
 	}
 
 	@SuppressWarnings("rawtypes")
 	public static Task<?> getInstance(Class<? extends Task> taskClazz,DataHandler dataHandler) throws NoSuchMethodException,
 			SecurityException, InstantiationException, IllegalAccessException,IllegalArgumentException, InvocationTargetException {
-
+		//通过构造函数，获得Task的实例对象
 		if (null == task) {
 			Constructor<? extends Task> constructor = taskClazz.getConstructor(DataHandler.class);
 			task = constructor.newInstance(dataHandler);
