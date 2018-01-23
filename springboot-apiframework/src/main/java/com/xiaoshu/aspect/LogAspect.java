@@ -43,7 +43,7 @@ import com.xiaoshu.util.IpHelper;
  * 　　　┗┻┛　┗┻┛
  *
  *
- * @Description : 
+ * @Description : 对对方法进行拦截，并将数据保存到数据库
  * ---------------------------------
  * @Author : deane.administrator
  * @Date : Create in 2018年1月20日上午11:03:49
