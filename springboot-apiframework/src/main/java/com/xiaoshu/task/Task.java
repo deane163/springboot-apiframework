@@ -123,13 +123,12 @@ public abstract class Task<T> implements Runnable {
 		while (true) {
 			try {
 				Thread.sleep(SLEEP_TIME);
-
+				// 每间隔5秒执行一次，用于异步处理队列中的数据
 				if (logger.isDebugEnabled()) {
 					logger.info("每 {} 时间，执行一次 execute ！！！", SLEEP_TIME);
 				}
 				execute();
 			} catch (Exception e) {
-				// TODO: handle exception
 				e.printStackTrace();
 			}
 		}
